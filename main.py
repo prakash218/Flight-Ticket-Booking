@@ -105,6 +105,8 @@ class BOOK_FLIGHT(Resource):
         for idx in range(len(tickets)):
             tickets[idx] = tickets[idx]._asdict()
             flight_details = Flight.query.filter_by(id = tickets[idx]['flight_id']).first()
+            if not flight_details:
+                continue
             for detail in flight_details._asdict().keys():
                 if detail == 'tickets':continue
                 if detail == 'date':continue
@@ -181,6 +183,11 @@ class VIEW_FLIGHT(Resource):
         for idx in range(len(tickets)):
             tickets[idx] = tickets[idx]._asdict()
             flight_details = Flight.query.filter_by(id = tickets[idx]['flight_id']).first()
+            print('\n' * 10)
+            print(flight_details)
+            print('\n' * 10)
+            if not flight_details:
+                continue
             for detail in flight_details._asdict().keys():
                 if detail == 'tickets':continue
                 if detail == 'date':continue

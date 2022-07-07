@@ -59,25 +59,48 @@ function create_my_account_divs(data)
     div.innerHTML = "";
     for(var i = 0; i < data.length; i++)
     {
-        var template = `<div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="static/img/ticket.jpg" class="card-img" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">${data[i].from_} → ${data[i].to_}</h5>
-              <p class="card-text">
-              <strong>Date:</strong> ${data[i].date_}   
-              <strong>Time:</strong> ${data[i].time}<br>
-              <strong>Flight Name: </strong>${data[i].name}<br>
-              <strong>Tickets: </strong>${data[i].tickets} <br>
-              <strong>Price: </strong>Rs.${data[i].price} <br>
-              </p>
+        if(data[i].from_ != undefined)
+        {
+            var template = `<div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="static/img/ticket.jpg" class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${data[i].from_} → ${data[i].to_}</h5>
+                  <p class="card-text">
+                  <strong>Date:</strong> ${data[i].date_}   
+                  <strong>Time:</strong> ${data[i].time}<br>
+                  <strong>Flight Name: </strong>${data[i].name}<br>
+                  <strong>Tickets: </strong>${data[i].tickets} <br>
+                  <strong>Price: </strong>Rs.${data[i].price} <br>
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>`
+          </div>`
+        }
+        else
+        {
+            var template = `<div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="static/img/cancelled.png" class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Cancelled</h5>
+                  <p class="card-text">
+                  <strong>Tickets: </strong>${data[i].tickets} <br>
+                  <strong>Price: </strong>Rs.${data[i].price} <br>
+                  <strong>Refund Initiated</strong> <br>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>`
+        }
         div.innerHTML += template;
     }
 
