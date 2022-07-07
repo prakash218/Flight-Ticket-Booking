@@ -48,26 +48,19 @@
     text-decoration: none;
     cursor: pointer;
     }
-    h1
+    h1,h2
+    {
+        /* center */
+        text-align: center;
+    }
+    p
     {
         /* center */
         text-align: center;
     }
 </style>
-    <h1>Book Tickets</h1>
-    <div id="myModal" class="modal">
-
-        <div class="modal-content">
-        <span class="close">&times;</span>
-        <label for="number">No. of Tickets</label>
-        <input type="number" id="number" name="number">
-        <br>
-        <br>
-        <span id = "price">Price : Rs.</span>
-        <button class = "btn btn-dark" id = "confirm" >Book Ticket</button>
-        </div>
+    <h1>View Bookings</h1>
     
-    </div>
     <div class="flight">
         <label for="from">From:</label>
         <input type="text" id="from" name="from">
@@ -75,9 +68,10 @@
         <input type="text" id="to" name="to">
         <label for="date">Date:</label>
         <input type="date" id="date" name="date">
-        <button onclick = "search(`search`);">Search</button>
+        <button onclick = "search(`view`);">Search</button>
     </div>
     <br><br><br><br>
+    <div id = "detailheader" style = "display:none"></div>
     <div id="results">
         
     </div>
