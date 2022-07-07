@@ -2,7 +2,7 @@
 
 async function view(id)
 {
-    var url = `http://localhost:5000/flights?id=${id}`;
+    var url = `https://prakash-flight.herokuapp.com//flights?id=${id}`;
     try
     {
         var response = await fetch(url);
@@ -108,7 +108,7 @@ function create_my_account_divs(data)
 
 async function my_account()
 {
-    var url = `http://localhost:5000/book`;
+    var url = `https://prakash-flight.herokuapp.com//book`;
 
     try{
         var response = await fetch(url);
@@ -149,7 +149,7 @@ async function book_flight(id, price, tickets)
         }
         else
         {
-            var url = `http://localhost:5000/book?id=${id}&ticket=${ticket}`;
+            var url = `https://prakash-flight.herokuapp.com//book?id=${id}&ticket=${ticket}`;
             try
             {
                 var response = await fetch(url, {
@@ -199,7 +199,7 @@ async function remove_flight(id)
 {
     if(confirm("Are you sure you want to delete this?"))
     {
-        var url = `http://localhost:5000/remove?id=${id}`;
+        var url = `https://prakash-flight.herokuapp.com//remove?id=${id}`;
         try
         {
             var response = await fetch(url, {
@@ -313,7 +313,7 @@ async function search(op)
     var date = document.getElementById("date").value;
     
 
-    var url = `http://localhost:5000/search?from=${from || " "}&to=${to || " "}&date=${date || " "}`;
+    var url = `https://prakash-flight.herokuapp.com//search?from=${from || " "}&to=${to || " "}&date=${date || " "}`;
     
     var body = 
     {
@@ -357,7 +357,7 @@ async function create_flight()
     var time = document.getElementById("time").value;
     var price = document.getElementById("price").value;
 
-    var url = `http://localhost:5000/create_flight?name=${name}&from=${from}&to=${to}&date=${date}&time=${time}&price=${price}`;
+    var url = `https://prakash-flight.herokuapp.com//create_flight?name=${name}&from=${from}&to=${to}&date=${date}&time=${time}&price=${price}`;
     var flight = {
         name: name,
         from: from,
